@@ -1,4 +1,4 @@
-import {ClassWrapper} from "./injector";
+import {ClassWrapper} from "./index";
 
 type GraphCache = Record<string, boolean>
 type Graph = Record<string, ClassWrapper<any>>
