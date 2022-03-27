@@ -1,0 +1,14 @@
+{
+  "name": "kiss-di",
+  "version": "1.0.0",
+  "description": "Very simple DI container, and topology initializer",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Eugene Voityk'",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^4.6.3"
+  }
+}
