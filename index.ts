@@ -45,8 +45,6 @@ function topologyBuilder(graph: Graph) {
     return result;
 }
 
-const isAsync = (fn: Function) => fn.constructor.name === 'AsyncFunction';
-
 function randomId(length: number) {
     let result = '';
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -164,10 +162,9 @@ export class Container {
             ) as Function[]
             const instance = container.createInstance(dependencies);
             if (instance.init) {
-                if (isAsync(instance.init)) {
-                    await instance.init();
-                } else {
-                    instance.init();
+                const res = instance.init();
+                if (res.then) {
+                    await res
                 }
             }
             this.setInstance(container.name, instance);
