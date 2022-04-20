@@ -163,7 +163,7 @@ export class Container {
             const instance = container.createInstance(dependencies);
             if (instance.init) {
                 const res = instance.init();
-                if (res.then) {
+                if (res && res.then) {
                     await res
                 }
             }
